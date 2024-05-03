@@ -1,1 +1,3 @@
-# redux_course
+# Redux Course
+
+
