@@ -8,7 +8,7 @@ Cake shop Example:
 | ---------- | ------------------------------------------------------------------------------------------ |
 | Customer   | Order Cake                                                                                 |
 | Shopkeeper | Check if there is specific cake, Box the cake, Print receipt for cake                      |
-| Store      |                                                                                            |
+| Store      | Is where the cakes are stored     |
 
 
 | Cake Shop Scenario | Redux   | Purpose                             |
