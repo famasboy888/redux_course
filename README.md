@@ -16,3 +16,6 @@ Cake shop Example:
 | Shop               | Store   | Hold the state of the application   |
 | Cake ordered       | Action  | Describes what happened             |
 | Shopkeeper         | Reducer | Handles action and describe how to update state |
+
+
+![image](https://github.com/famasboy888/redux_course/assets/23441168/86d760ab-d5c4-4c7b-a142-05cdc5c8b9f7)
