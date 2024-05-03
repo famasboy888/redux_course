@@ -20,3 +20,12 @@ Cake shop Example:
 ## How state is handled:
 
 ![image](https://github.com/famasboy888/redux_course/assets/23441168/86d760ab-d5c4-4c7b-a142-05cdc5c8b9f7)
+
+## Redux Pattern:
+1) Define a store
+2) Create initial state object
+3) Create reducer
+4) Create action creator
+5) Subscribe to store
+6) Dispatch actions
+7) Unsubscibe to changes
