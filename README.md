@@ -15,4 +15,4 @@ Cake shop Example:
 | ------------------ | ------- | ----------------------------------- |
 | Shop               | Store   | Hold the state of the application   |
 | Cake ordered       | Action  | Describes what happened             |
-| Shopkeeper         | Reducer | Ties the store and actions together |
+| Shopkeeper         | Reducer | Handles action and describe how to update state |
