@@ -7,10 +7,7 @@ Cake shop Example:
 | Entity     | Activity                                                                                   |
 | ---------- | ------------------------------------------------------------------------------------------ |
 | Customer   | *   Order Cake                                                                             |
-| Shopkeeper | *   Check if there is specific cake
-    
-
-*   Box the cake
-    
-*   Print receipt for cake |
+| Shopkeeper | *   Check if there is specific cake                                                        |
+|            | *   Box the cake                                                                           |
+|            | *   Print receipt for cake                                                                 |
 | Store      |                                                                                            |
