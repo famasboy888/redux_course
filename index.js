@@ -1,4 +1,9 @@
 const redux = require("redux");
+const reduxLoger = require("redux-logger");
+
+const logger = reduxLoger.createLogger();
+
+const applyMiddleware = redux.applyMiddleware;
 
 const createStore = redux.createStore;
 
@@ -84,14 +89,14 @@ const rootReduce = redux.combineReducers({
 })
 
 //Holds application state
-const store = createStore(rootReduce);
+const store = createStore(rootReduce, applyMiddleware(logger));
 
 //Access state via store.getState()
 console.log("initial state:", store.getState());
 
 //Subscribe first
 const unsubscribe = store.subscribe(() => {
-  console.log("updated state:", store.getState());
+
 });
 
 //Allows state to be updated via Dispatch(action)

@@ -1,10 +1,19 @@
-# Combine reducers
+# Modify nested state
 
-We can create multiple reduces. We pass reducers as objects this method to use multiple reducers.
+Use `require("immer").produce` for easy object selection and change
 
 ```bash
-const rootReduce = redux.combineReducers({
-    cakeReducer: cakeReducer,
-    iceCreamReducer: iceCreamReducer
-})
+return produce(state, (draft) => {
+    draft.address.street = action.payload;
+});
+```
+
+# Middleware
+
+```bash
+const reduxLoger = require("redux-logger");
+const logger = reduxLoger.createLogger();
+const applyMiddleware = redux.applyMiddleware;
+
+const store = createStore(rootReduce, applyMiddleware(logger));
 ```
