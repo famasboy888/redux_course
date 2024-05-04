@@ -4,6 +4,8 @@ const createStore = redux.createStore;
 
 const CAKE_ORDERED = "CAKE_ORDERED";
 const CAKE_RESTOCKED = "CAKE_RESTOCKED";
+const ICECREAM_ORDERED = "ICECREAM_ORDERED";
+const ICECREAM_RESTOCKED = "ICECREAM_RESTOCKED";
 
 function orderCake(qty = 1) {
   return {
@@ -19,11 +21,29 @@ function restockCake(qty = 1) {
   };
 }
 
-const initialState = {
+function orderIceCream(qty = 1) {
+  return {
+    type: ICECREAM_ORDERED,
+    payload: qty,
+  };
+}
+
+function restockIceCream(qty = 1) {
+  return {
+    type: ICECREAM_RESTOCKED,
+    payload: qty,
+  };
+}
+
+const initialCakeState = {
   numOfCakes: 10,
 };
 
-const reducer = (state = initialState, action) => {
+const initialIceCreamState = {
+  numOfIceCreams: 20,
+};
+
+const cakeReducer = (state = initialCakeState, action) => {
   switch (action.type) {
     case CAKE_ORDERED:
       return {
@@ -40,8 +60,31 @@ const reducer = (state = initialState, action) => {
   }
 };
 
+const iceCreamReducer = (state = initialIceCreamState, action) => {
+  switch (action.type) {
+    case ICECREAM_ORDERED:
+      return {
+        ...state,
+        numOfIceCreams: state.numOfIceCreams - action.payload,
+      };
+    case ICECREAM_RESTOCKED:
+      return {
+        ...state,
+        numOfIceCreams: state.numOfIceCreams + action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+
+const rootReduce = redux.combineReducers({
+    cakeReducer: cakeReducer,
+    iceCreamReducer: iceCreamReducer
+})
+
 //Holds application state
-const store = createStore(reducer);
+const store = createStore(rootReduce);
 
 //Access state via store.getState()
 console.log("initial state:", store.getState());
@@ -61,10 +104,15 @@ const unsubscribe = store.subscribe(() => {
 // store.dispatch(restockCake(20));
 
 //Use bind action creators like this
-const action = redux.bindActionCreators({orderCake, restockCake}, store.dispatch)
+const action = redux.bindActionCreators(
+  { orderCake, restockCake, orderIceCream, restockIceCream },
+  store.dispatch
+);
 
 action.orderCake(2);
-action.restockCake(3)
+action.restockCake(3);
+action.orderIceCream(4);
+action.restockIceCream(2);
 
 //Unsubscribe
 unsubscribe();
